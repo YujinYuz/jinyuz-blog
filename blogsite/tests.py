@@ -30,4 +30,9 @@ class TestNewVisitorHomePage(StaticLiveServerTestCase):
 
     def test_home_title(self):
         self.browser.get(self.get_full_url('home'))
-        self.assertIn("Jinyuz Blog", self.browser.title)
+        self.assertIn("idiot genius", self.browser.title)
+
+    def test_brand_title(self):
+        self.browser.get(self.get_full_url('home'))
+        brand_title = self.browser.find_element_by_class_name('brand-title')
+        self.assertIn("yujinyuz", brand_title.text)
