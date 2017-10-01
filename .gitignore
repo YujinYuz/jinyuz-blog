@@ -9,8 +9,8 @@
 .project
 .pydevproject
 
-# Database templates
-kalite/database
+# Databases
+db.*
 
 # setup.py
 dist/
@@ -27,6 +27,7 @@ geckodriver.log
 
 # User cache data generated at runtime
 cache/
+__pycache__/
 
 # MAC stuff
 .DS_Store
