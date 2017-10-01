@@ -1,0 +1,60 @@
+# Ignore this
+# File created by Coverage
+.coverage
+
+# PyCharm
+.idea
+
+# Eclipse
+.project
+.pydevproject
+
+# Database templates
+kalite/database
+
+# setup.py
+dist/
+build/
+*.egg-info/
+
+
+# Static builds with setup.py [command] --static
+.pip-temp/
+.pip-downloads/
+
+# Created by Selenium / Firefox
+geckodriver.log
+
+# User cache data generated at runtime
+cache/
+
+# MAC stuff
+.DS_Store
+
+# Not sure
+*.patch
+*.pid
+*.prof
+
+# Python compiling
+*.pyc
+*.pyo
+
+# Backup files
+*~
+
+# Sublime editor
+*.sublime-*
+
+# Documentation
+docs/_build
+docs/images/*
+
+# Lacks documentation
+node_modules/
+tmp/
+virtualenv/
+/.vagrant/
+ghostdriver.log
+*.swp
+file_map.json
