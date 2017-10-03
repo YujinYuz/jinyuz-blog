@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="posts">
+  <h1 class="content-subhead"><a href="{% url 'index' %}">Back to Home</a></h1>
+  <section class="post">
+    <header class="post-header">
+      <img width="48" height="48" alt="My Avatar" class="post-avatar" src="{% static 'img/common/yujin.jpeg' %}">
+
+      <h2 class="post-title">About Me</h2>
+
+      <p class="post-meta">
+        By <a href="#" class="post-author">Eugene Essun Oliveros</a> under <a class="post-category post-category-design" href="#">Myself</a>
+      </p>
+    </header>
+
+    <div class="post-description">
+      <p>I'm pogi.</p>
+    </div>
+  </section>
+</div>
+{%  endblock %}

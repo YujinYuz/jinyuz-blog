@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="posts">
+  <h1 class="content-subhead"><a href="{% url 'index' %}">Back to Home</a></h1>
+  <!-- A single blog post -->
+  <section class="post">
+    <header class="post-header">
+      <img width="48" height="48" alt="My Avatar" class="post-avatar" src="{{ post.author.image.url }}">
+
+      <h2 class="post-title">{{ post.title }}</h2>
+
+      <p class="post-meta">
+        By <a href="{% url 'about' %}" class="post-author">{{ post.author }}</a> under <a class="post-category post-category-js" href="{% url  'blog:category' post.category.slug %}">{{ post.category }}</a>
+      </p>
+    </header>
+
+    <div class="post-description">
+      {{ post.body|linebreaks }}
+    </div>
+  </section>
+</div>
+{% endblock %}
