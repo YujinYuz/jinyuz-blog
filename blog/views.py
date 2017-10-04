@@ -7,7 +7,7 @@ class IndexView(generic.ListView):
     context_object_name = 'recent_posts'
 
     def get_queryset(self):
-        return Post.objects.order_by('-created_at')[:10]
+        return Post.objects.get_recent_posts()
 
 
 class DetailView(generic.DetailView):

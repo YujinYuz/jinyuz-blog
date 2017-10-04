@@ -80,39 +80,8 @@
     <div class="content pure-u-1 pure-u-md-3-4">
         <div>
             {% block content %}
-            <!-- A wrapper for all the blog posts -->
-            <div class="posts">
-                <h1 class="content-subhead">Pinned Post</h1>
-
-                <!-- A single blog post -->
-                <section class="post">
-                    <header class="post-header">
-                        <img width="48" height="48" alt="My Avatar" class="post-avatar" src="/media/images/chibi-me.jpeg">
-
-                        <h2 class="post-title">Beefy Summary</h2>
-
-                        <p class="post-meta">
-                            By <a href="#" class="post-author">Eugene Essun Oliveros</a> under <a class="post-category post-category-design" href="#">Myself</a>
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                        <p>
-                          Hi! I'm currently a *web developer* making my way in the industry. It's pretty difficult to get going on the road to becoming a developer especially if you're an idiot genius. I do believe that all people are geniuses. There's just one main problem. They are too idiot (or maybe lazy) to use their brains to become geniuses! 😂
-                        </p>
-
-                        <p>
-                          Well, sometimes, I also don't use my brain. That's why I thought about calling myself an idiot genius.
-                        </p>
-
-                        <p>
-                          Anyways, enjoy this blog!
-                        </p>
-                    </div>
-                </section>
-            </div>
-
-            {% block recent_posts %} {% endblock recent_posts %}
+              {% block pinned_posts %} {% endblock %}
+              {% block recent_posts %} {% endblock recent_posts %}
 
             {% endblock content %}
 
