@@ -49,8 +49,9 @@
                     </li>
                 </ul>
             </nav>
-            <!-- TODOS (yujinyuz): Convert to images -->
+            <!-- TODOS (yujinyuz): Convert to dynamic links -->
             <nav class="nav">
+              {% block nav_badges %}
               <ul class="nav-badges">
                 <li class="nav-item-icon">
                   <a href="#"><img src="{% static 'img/logo/github.png' %}"></a>
@@ -71,8 +72,8 @@
                 <li class="nav-item-icon">
                   <a href="#"><img src="{% static 'img/logo/linkedin.png' %}"></a>
                 </li>
-
               </ul>
+              {% endblock %}
             </nav>
         </div>
     </div>
