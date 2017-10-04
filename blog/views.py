@@ -3,7 +3,7 @@ from django.views import generic
 
 
 class IndexView(generic.ListView):
-    template_name = 'blog/index.html'
+    template_name = 'blog/blog_index.html'
     context_object_name = 'recent_posts'
 
     def get_queryset(self):

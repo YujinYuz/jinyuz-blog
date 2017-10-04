@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="posts">
+    <h1 class="content-subhead">Back to Home</h1>
+    {% if recent_posts %}
+        {% for post in recent_posts %}
+            <section class="post">
+                <header class="post-header">
+                    <img width="48" height="48" alt="Eugene Essun Oliveros" class="post-avatar" src="{{ post.author.image.url }}">
+                    <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+                    <p class="post-meta">
+                        By <a class="post-author" href="#">{{ post.author }}</a> under <a class="post-category post-category-js" href="{% url 'blog:category' post.category.slug %}">{{ post.category }}</a>
+                    </p>
+                </header>
+
+                <div class="post-description">
+                  {{ post.body|truncatechars:100|safe }}
+                </div>
+                <a href="{{ post.url }}">Read more &#10148;</a>
+            </section>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
