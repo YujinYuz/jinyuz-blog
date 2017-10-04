@@ -1,5 +1,9 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin
 from blog.models import Post, Category, Author, Social
+
+admin.site.unregister(User)
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -10,11 +14,19 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
-# class AuthorAdmin(admin.ModelAdmin):
-#     pass
+class SocialInline(admin.StackedInline):
+    model = Social
+    extra = 2
+
+
+class AuthorInline(admin.StackedInline):
+    model = Author
+
+
+class AuthorAdmin(UserAdmin):
+    inlines = [AuthorInline]
 
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Author)
-admin.site.register(Social)
+admin.site.register(User, AuthorAdmin)
