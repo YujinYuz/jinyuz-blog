@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="posts">
-    <h1 class="content-subhead">Back to Home</h1>
+    <h1 class="content-subhead"><a href="{% url 'index' %}">Back to Home</a></h1>
     {% if recent_posts %}
         {% for post in recent_posts %}
             <section class="post">
