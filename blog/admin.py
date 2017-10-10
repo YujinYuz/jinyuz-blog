@@ -24,7 +24,7 @@ class AuthorInline(admin.StackedInline):
 
 
 class AuthorAdmin(UserAdmin):
-    inlines = [AuthorInline]
+    inlines = [AuthorInline, SocialInline]
 
 
 admin.site.register(Post, PostAdmin)

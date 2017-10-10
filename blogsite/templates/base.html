@@ -49,32 +49,9 @@
                     </li>
                 </ul>
             </nav>
-            <!-- TODOS (yujinyuz): Convert to dynamic links -->
-            <nav class="nav">
-              {% block nav_badges %}
-              <ul class="nav-badges">
-                <li class="nav-item-icon">
-                  <a href="#"><img src="{% static 'img/logo/github.png' %}"></a>
-                </li>
-
-                <li class="nav-item-icon">
-                  <a href="#"><img src="{% static 'img/logo/twitter.png' %}"></a>
-                </li>
-
-                <li class="nav-item-icon">
-                  <a href="#"><img src="{% static 'img/logo/reddit.png' %}"></a>
-                </li>
-
-                <li class="nav-item-icon">
-                  <a href="#"><img src="{% static 'img/logo/googleplus.png' %}"></a>
-                </li>
-
-                <li class="nav-item-icon">
-                  <a href="#"><img src="{% static 'img/logo/linkedin.png' %}"></a>
-                </li>
-              </ul>
-              {% endblock %}
-            </nav>
+            {% block nav_badges %}
+              {% include "blogsite/badges.html" %}
+            {% endblock %}
         </div>
     </div>
 

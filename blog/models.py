@@ -3,27 +3,30 @@ from ckeditor.fields import RichTextField
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from .managers import PostManager
+import os
 
-
-SOCIAL_IMAGE = (
-    ('git', 'GitHub'),
-    ('linkedin', 'LinkedIn'),
-)
-
-POST_KIND = (
-    ('post', 'Post'),
-    ('pinned_post', 'Pinned Post'),
-    ('draft', 'Draft'),
-)
-
-
-POST_STATUS = (
-    ('public', 'Public'),
-    ('private', 'Private'),
-)
+SOCIAL_IMAGE_LINKS = {
+    'github': os.path.join('img', 'logo', 'github.png'),
+    'linkedin': os.path.join('img', 'logo', 'linkedin.png'),
+    'googleplus': os.path.join('img', 'logo', 'googleplus.png'),
+    'reddit': os.path.join('img', 'logo', 'reddit.png'),
+    'steam': os.path.join('img', 'logo', 'steam.png'),
+    'twitter': os.path.join('img', 'logo', 'twitter.png'),
+}
 
 
 class Post(models.Model):
+    POST_KIND = (
+        ('post', 'Post'),
+        ('pinned_post', 'Pinned Post'),
+        ('draft', 'Draft'),
+    )
+
+    POST_STATUS = (
+        ('public', 'Public'),
+        ('private', 'Private'),
+    )
+
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
     kind = models.CharField(max_length=100, choices=POST_KIND, default='draft')
@@ -67,6 +70,26 @@ class Author(models.Model):
 
 
 class Social(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    social_account_link = models.URLField()
-    social_icon = models.CharField(max_length=20, choices=SOCIAL_IMAGE)
+
+    SOCIAL_IMAGE = (
+        ('github', 'GitHub'),
+        ('linkedin', 'LinkedIn'),
+        ('googleplus', 'Google+'),
+        ('reddit', 'Reddit'),
+        ('steam', 'Steam'),
+        ('twitter', 'Twitter'),
+    )
+
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    url = models.URLField()
+    icon = models.CharField(
+        max_length=20, choices=SOCIAL_IMAGE)
+    icon_path = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        self.icon_path = SOCIAL_IMAGE_LINKS.get(self.icon, '')
+        super(Social, self).save(*args, **kwargs)
