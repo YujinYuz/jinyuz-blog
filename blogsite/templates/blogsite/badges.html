@@ -2,7 +2,24 @@
 
 <nav class="nav">
   <ul class="nav-badges">
-  {% for badge in badges %}
-    <li class="nav-item-icon"><a href="{{ badge.url }}" target="_blank"><img src="{% static badge.icon_path %}"></a></li>
-  {% endfor %}
+    <li class="nav-item-icon">
+      <a href="https://github.com/YujinYuz"><img src="{% static 'img/logo/github.png' %}"></a>
+    </li>
+
+    <li class="nav-item-icon">
+      <a href="https://twitter.com/jinyuzprodigy"><img src="{% static 'img/logo/twitter.png' %}"></a>
+    </li>
+
+    <li class="nav-item-icon">
+      <a href="https://www.reddit.com/user/YujinYuz/"><img src="{% static 'img/logo/reddit.png' %}"></a>
+    </li>
+
+    <li class="nav-item-icon">
+      <a href="https://plus.google.com/u/0/116670347391248436895"><img src="{% static 'img/logo/googleplus.png' %}"></a>
+    </li>
+
+    <li class="nav-item-icon">
+      <a href="https://www.linkedin.com/in/eugene-essun-oliveros-b79a94120/"><img src="{% static 'img/logo/linkedin.png' %}"></a>
+    </li>
+  </ul>
 </nav>

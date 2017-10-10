@@ -3,16 +3,6 @@ from ckeditor.fields import RichTextField
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from .managers import PostManager
-import os
-
-SOCIAL_IMAGE_LINKS = {
-    'github': os.path.join('img', 'logo', 'github.png'),
-    'linkedin': os.path.join('img', 'logo', 'linkedin.png'),
-    'googleplus': os.path.join('img', 'logo', 'googleplus.png'),
-    'reddit': os.path.join('img', 'logo', 'reddit.png'),
-    'steam': os.path.join('img', 'logo', 'steam.png'),
-    'twitter': os.path.join('img', 'logo', 'twitter.png'),
-}
 
 
 class Post(models.Model):
@@ -67,29 +57,3 @@ class Author(models.Model):
 
     def __str__(self):
         return "{fullname}".format(fullname=self.user.get_full_name())
-
-
-class Social(models.Model):
-
-    SOCIAL_IMAGE = (
-        ('github', 'GitHub'),
-        ('linkedin', 'LinkedIn'),
-        ('googleplus', 'Google+'),
-        ('reddit', 'Reddit'),
-        ('steam', 'Steam'),
-        ('twitter', 'Twitter'),
-    )
-
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    title = models.CharField(max_length=100)
-    url = models.URLField()
-    icon = models.CharField(
-        max_length=20, choices=SOCIAL_IMAGE)
-    icon_path = models.CharField(max_length=100, blank=True)
-
-    def __str__(self):
-        return self.title
-
-    def save(self, *args, **kwargs):
-        self.icon_path = SOCIAL_IMAGE_LINKS.get(self.icon, '')
-        super(Social, self).save(*args, **kwargs)

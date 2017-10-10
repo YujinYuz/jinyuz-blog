@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.views import generic
-from blog.models import Post, Social
+from blog.models import Post
 
 
 class IndexView(generic.ListView):
@@ -14,7 +14,6 @@ class IndexView(generic.ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(IndexView, self).get_context_data(*args, **kwargs)
         context['pinned_posts'] = Post.objects.get_pinned_posts()
-        context['badges'] = Social.objects.filter(author__username='yujinyuz')
         return context
 
 

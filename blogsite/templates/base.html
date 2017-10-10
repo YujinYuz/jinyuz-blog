@@ -49,9 +49,8 @@
                     </li>
                 </ul>
             </nav>
-            {% block nav_badges %}
-              {% include "blogsite/badges.html" %}
-            {% endblock %}
+
+            {% include "blogsite/badges.html" %}
         </div>
     </div>
 
@@ -60,7 +59,6 @@
             {% block content %}
               {% block pinned_posts %} {% endblock %}
               {% block recent_posts %} {% endblock recent_posts %}
-
             {% endblock content %}
 
             <div class="footer">
