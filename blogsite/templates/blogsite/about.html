@@ -2,22 +2,44 @@
 {% load static %}
 {% block content %}
 
-<div class="posts">
-  <h1 class="content-subhead"><a href="{% url 'index' %}">Back to Home</a></h1>
-  <section class="post">
-    <header class="post-header">
-      <img width="48" height="48" alt="My Avatar" class="post-avatar" src="{% static 'img/common/yujin.jpeg' %}">
+  <div class="posts">
+    <h1 class="content-subhead"><a href="{% url 'index' %}">Back to Home</a></h1>
+    {% for post in posts %}
+      <section class="post">
+          <header class="post-header">
+            <img width="48" height="48" alt="{{ post.author }}" class="post-avatar" src="{% static 'img/common/yujin.jpeg' %}">
 
-      <h2 class="post-title">About Me</h2>
+            <h2 class="post-title">{{ post.title }}</h2>
 
-      <p class="post-meta">
-        By <a href="#" class="post-author">Eugene Essun Oliveros</a> under <a class="post-category post-category-design" href="#">Myself</a>
-      </p>
-    </header>
+            <p class="post-meta">
+              By <a href="#" class="post-author">{{ post.author }}</a> under <a class="post-category post-category-design" href="#">{{ post.category }}</a>
+            </p>
+          </header>
+
+          <div class="post-description">
+            {{ post.body|safe }}
+          </div>
+        </section>
+    {% endfor %}
+  </div>
+
+  <div class="post">
+    <section class="post">
+      <header class="post-header">
+        <h2 class="post-title">GitHub Repositores: </h2>
+        <p class="post-meta">
+            By <a href="#" class="post-author">{{ post.author }}</a> under <a class="post-category post-category-design" href="#">{{ post.category }}</a>
+          </p>
+      </header>
+    </section>
 
     <div class="post-description">
-      <p>I'm pogi.</p>
+      <dl>
+        {% for repo in repos %}
+          <dt><a href="{{ repo.url }}">{{ repo.name }}</a>&nbsp;({{ repo.language }})</dt>
+          <dd>{{ repo.description }}</dd>
+        {% endfor %}
+      </dl>
     </div>
-  </section>
-</div>
+  </div>
 {%  endblock %}

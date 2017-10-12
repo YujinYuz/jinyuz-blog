@@ -22,6 +22,7 @@ class AboutView(generic.TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(AboutView, self).get_context_data(*args, **kwargs)
-        context['repos'] = github.get_user_repositories(username='yujinyuz', forked=False)
+        context['repos'] = github.load_user_repositories(username='yujinyuz', forked=False)
+        context['posts'] = Post.objects.get_pinned_posts()
 
         return context
