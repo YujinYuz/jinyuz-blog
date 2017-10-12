@@ -2,7 +2,7 @@
 
 from django.views import generic
 from blog.models import Post
-
+from jyz.utils import github
 
 class IndexView(generic.ListView):
     template_name = 'blogsite/index.html'
@@ -19,3 +19,9 @@ class IndexView(generic.ListView):
 
 class AboutView(generic.TemplateView):
     template_name = 'blogsite/about.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(AboutView, self).get_context_data(*args, **kwargs)
+        context['repos'] = github.get_user_repositories(username='yujinyuz', forked=False)
+
+        return context
