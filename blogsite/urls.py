@@ -25,8 +25,7 @@ urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^about/$', AboutView.as_view(), name='about'),
     url(r'^blog/', include('blog.urls', namespace='blog'), name='blog'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # NOT the best practice but since I am only using one image, the I think this should be fine.
 # TODO(yujinyuz): Try to research more about S3 AWS
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
