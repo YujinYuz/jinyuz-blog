@@ -1,6 +1,10 @@
 import dj_database_url
 import os
+import mimetypes
 from .base import *
+
+mimetypes.add_type("text/css", ".css", True)
+mimetypes.add_type("text/javascript", ".js", True)
 
 DEBUG = os.environ.get('DJANGO_DEBUG', False) == 'True'
 ALLOWED_HOSTS = ['*', 'jinyuz-blog.herokuapp.com']
