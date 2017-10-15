@@ -2,7 +2,7 @@ import dj_database_url
 import os
 from .base import *
 
-DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', False) == 'True'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 SECRET_KEY = os.environ.get('SECRET_KEY', 'asdfasdf')
 
