@@ -1,13 +1,9 @@
 from .base import *
 import dj_database_url
-from dj_database_url import config
 
 DEBUG = False
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 SECRET_KEY = config('SECRET_KEY')
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config
-    )
-}
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
