@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Jinyuz Blog{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Jinyuz Blog Administration</a></h1>
+{% endblock %}
+
+{% block extrahead %}
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+{% endblock  %}
+
+{% block nav-global %}{% endblock %}
