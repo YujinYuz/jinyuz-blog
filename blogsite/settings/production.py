@@ -3,6 +3,7 @@ import os
 from .base import *
 
 DEBUG = os.environ.get('DJANGO_DEBUG', False) == 'True'
+ALLOWED_HOSTS = ['*', 'jinyuz-blog.herokuapp.com']
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 SECRET_KEY = os.environ.get('SECRET_KEY', 'asdfasdf')
 
