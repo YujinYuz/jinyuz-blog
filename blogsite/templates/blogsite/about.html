@@ -7,12 +7,12 @@
     {% for post in posts %}
       <section class="post">
           <header class="post-header">
-            <img width="48" height="48" alt="{{ post.author }}" class="post-avatar" src="{% static 'img/common/yujin.jpeg' %}">
+            <img width="48" height="48" alt="{{ post.author }}" class="post-avatar" src="{{ post.author.image.url }}">
 
             <h2 class="post-title">{{ post.title }}</h2>
 
             <p class="post-meta">
-              By <a href="#" class="post-author">{{ post.author }}</a> under <a class="post-category post-category-design" href="#">{{ post.category }}</a>
+              By <a href="#" class="post-author">{{ post.author }}</a> under <a class="post-category post-category-design" href="{% url 'blog:category' post.category.slug %}">{{ post.category }}</a>
             </p>
           </header>
 
@@ -24,8 +24,8 @@
   </div>
 
   <div class="post">
-    <section class="post">
-      <header class="post-header">
+    <section class="post" style="padding-bottom: 0em;">
+      <header class="post-header"></header>
         <h2 class="post-title">GitHub Repositores: </h2>
       </header>
     </section>

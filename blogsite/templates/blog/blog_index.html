@@ -1,9 +1,9 @@
-{% extends "base.html" %}
+{% extends "blogsite/index.html" %}
 {% load static %}
 
 {% block content %}
 <div class="posts">
-    <h1 class="content-subhead"><a href="{% url 'index' %}">Back to Home</a></h1>
+    <h1 class="content-subhead">{% block content_subhead %}<a href="{% url 'index' %}">Back to Home</a>{% endblock %}</h1>
     {% if recent_posts %}
         {% for post in recent_posts %}
             <section class="post">

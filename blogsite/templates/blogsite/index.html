@@ -1,34 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block pinned_posts %}
-{% if pinned_posts %}
-{% for post in pinned_posts %}
-<div class="posts">
-  <h1 class="content-subhead">Pinned Post</h1>
-  <section class="post">
-    <header class="post-header">
-      <img width="48" height="48" alt="My Avatar" class="post-avatar" src="{{ post.author.image.url }}">
-
-      <h2 class="post-title">{{ post.title }}</h2>
-
-      <p class="post-meta">
-        By <a href="#" class="post-author">{{ post.author }}</a> under <a class="post-category post-category-design" href="#">{{ post.category }}</a>
-      </p>
-    </header>
-
-    <div class="post-description">
-      {{ post.body|safe }}
-    </div>
-  </section>
-</div>
-{% endfor %}
-{% endif %}
-{% endblock %}
-
 {% block recent_posts %}
 <div class="posts">
-    <h1 class="content-subhead">Recent Posts</h1>
+    <h1 class="content-subhead">{% block content_subhead %}Recent Posts{% endblock %}</h1>
     {% if latest_blog_posts %}
         {% for post in latest_blog_posts %}
             <section class="post">
