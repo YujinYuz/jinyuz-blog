@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
+{% block head_title %}Jinyuz Blog &ndash; {{ post.title }}{% endblock %}
+
+{% block meta_tags %}
+<meta name="description" content="{{ post.title }}">
+<meta name="keywords" content="{{ post.tags }}">
+<meta name="author" content="{{ post.author }}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:url" content="{% url 'blog:detail' post.slug %}">
+<meta property="og:description" content="{{ post.body|truncatechars:50 }}">
+<meta property="article:publisher" content="https://github.com/YujinYuz">
+{% endblock %}
+
 {% block content %}
 <div class="posts">
   <h1 class="content-subhead"><a href="{% url 'index' %}">Back to Home</a></h1>

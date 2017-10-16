@@ -16,7 +16,7 @@
                 </header>
 
                 <div class="post-description">
-                  {{ post.body|truncatechars:100|safe }}
+                  {{ post.body|truncatewords:100|safe }}
                 </div>
                 <a href="{{ post.url }}">Read more &#10148;</a>
             </section>
