@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # custom apps
     'ckeditor',
+    'storages',
 
     # user apps
     'blog',
