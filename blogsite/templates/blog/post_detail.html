@@ -18,6 +18,10 @@
     <div class="post-description">
       {{ post.body|safe }}
     </div>
+
+    <div class="date-posted">
+      <p><em><small>Posted on {{ post.created_at|date:"M d, Y" }}</small></em></p>
+    </div>
   </section>
 </div>
 {% endblock %}
