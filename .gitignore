@@ -60,3 +60,4 @@ ghostdriver.log
 *.swp
 file_map.json
 .vscode
+staticfiles
