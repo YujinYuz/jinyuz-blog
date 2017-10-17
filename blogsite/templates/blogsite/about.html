@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% block head_title %}About Me{% endblock %}
 {% block content %}
-
   <div class="posts">
     <h1 class="content-subhead"><a href="{% url 'index' %}">Back to Home</a></h1>
     {% for post in posts %}
@@ -26,7 +26,7 @@
   <div class="post">
     <section class="post" style="padding-bottom: 0em;">
       <header class="post-header"></header>
-        <h2 class="post-title">GitHub Repositores: </h2>
+        <h2 class="post-title">GitHub Repositories: </h2>
       </header>
     </section>
 
