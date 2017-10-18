@@ -2,7 +2,7 @@
 from django.test import TestCase, RequestFactory
 from django.core.urlresolvers import reverse
 from django.contrib.staticfiles.testing import LiveServerTestCase
-from selenium import webdriver
+from selenium.webdriver.firefox.webdriver import WebDriver
 
 
 class TestHomePage(TestCase):
@@ -19,12 +19,16 @@ class TestHomePage(TestCase):
 
 class TestNewVisitorHomePage(LiveServerTestCase):
 
-    def setUp(self):
-        self.browser = webdriver.Firefox()
-        self.browser.implicitly_wait(3)
+    @classmethod
+    def setUpClass(cls):
+        super(TestNewVisitorHomePage, cls).setUpClass()
+        cls.browser = WebDriver()
+        cls.browser.implicitly_wait(5)
 
-    def tearDown(self):
-        self.browser.quit()
+    @classmethod
+    def tearDownClass(cls):
+        cls.browser.quit()
+        super(TestNewVisitorHomePage, cls).tearDownClass()
 
     def get_full_url(self, namespace):
         return self.live_server_url + reverse(namespace)
@@ -54,12 +58,16 @@ class TestAboutPage(TestCase):
 
 class TestNewVisitorAboutPage(LiveServerTestCase):
 
-    def setUp(self):
-        self.browser = webdriver.Firefox()
-        self.browser.implicitly_wait(3)
+    @classmethod
+    def setUpClass(cls):
+        super(TestNewVisitorAboutPage, cls).setUpClass()
+        cls.browser = WebDriver()
+        cls.browser.implicitly_wait(5)
 
-    def tearDown(self):
-        self.browser.quit()
+    @classmethod
+    def tearDownClass(cls):
+        cls.browser.quit()
+        super(TestNewVisitorAboutPage, cls).tearDownClass()
 
     def get_full_url(self, namespace):
         return self.live_server_url + reverse(namespace)
