@@ -12,8 +12,9 @@ before_install:
   - wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.19.0/geckodriver-v0.19.0-linux64.tar.gz
   - gunzip -c geckodriver.tar.gz | tar xopf -
   - chmod +x geckodriver
-  - echo $PWD
-  - export PATH=$PATH:$PWD/geckodriver
+  - mkdir gecko
+  - cp geckodriver gecko/
+  - export PATH=$PATH:$PWD/gecko
 # command to install dependencies
 install:
   - pip install -r requirements.txt
