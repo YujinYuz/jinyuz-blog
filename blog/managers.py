@@ -17,3 +17,8 @@ class PostManager(models.Manager):
                                               ).filter(status='public')
 
         return queryset
+
+    def get_all_posts(self):
+        queryset = self.get_queryset().filter(status='public')
+
+        return queryset
