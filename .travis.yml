@@ -9,10 +9,10 @@ branches:
     - master
 
 before_install:
-  - wget https://github.com/mozilla/geckodriver/releases/download/v0.19.0/geckodriver-v0.19.0-linux32.tar.gz
-  - mkdir geckodriver
-  - tar -xzf geckodriver-v0.19.0-linux32.tar.gz -C geckodriver
-  - chmod +x geckodriver/geckodriver
+  - wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.19.0/geckodriver-v0.19.0-linux64.tar.gz
+  - gunzip -c geckodriver.tar.gz | tar xopf -
+  - chmod +x geckodriver
+  - echo $PWD
   - export PATH=$PATH:$PWD/geckodriver
 # command to install dependencies
 install:
