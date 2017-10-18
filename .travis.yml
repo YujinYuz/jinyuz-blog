@@ -11,8 +11,10 @@ branches:
 install:
   - pip install -r requirements.txt
   - pip install -U codecov
+
 # command to run tests
 script:
+  # Not sure if this is the right one. So, if someone sees this, can you please correct me? Thanks :)
   - coverage run manage.py test
 
 after_success:
