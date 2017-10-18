@@ -23,7 +23,7 @@ class TestNewVisitorHomePage(LiveServerTestCase):
     def setUpClass(cls):
         super(TestNewVisitorHomePage, cls).setUpClass()
         cls.browser = WebDriver()
-        cls.browser.implicitly_wait(5)
+        cls.browser.implicitly_wait(8)
 
     @classmethod
     def tearDownClass(cls):
@@ -62,7 +62,7 @@ class TestNewVisitorAboutPage(LiveServerTestCase):
     def setUpClass(cls):
         super(TestNewVisitorAboutPage, cls).setUpClass()
         cls.browser = WebDriver()
-        cls.browser.implicitly_wait(5)
+        cls.browser.implicitly_wait(8)
 
     @classmethod
     def tearDownClass(cls):
