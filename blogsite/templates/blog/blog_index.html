@@ -10,7 +10,7 @@
         {% for post in recent_posts %}
             <section class="post">
                 <header class="post-header">
-                    <img width="48" height="48" alt="Eugene Essun Oliveros" class="post-avatar" src="{{ post.author.image.url }}">
+                    <img width="48" height="48" alt="{{ post.author }}" class="post-avatar" src="{{ post.author.image.url }}">
                     <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
 
                     <p class="post-meta">
