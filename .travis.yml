@@ -13,7 +13,7 @@ before_install:
   - mkdir geckodriver
   - tar -xzf geckodriver-v0.19.0-linux32.tar.gz -C geckodriver
   - chmod +x geckodriver/geckodriver
-  - export PATH=$PATH:$PWD/geckodrive
+  - export PATH=$PATH:$PWD/geckodriver
 # command to install dependencies
 install:
   - pip install -r requirements.txt
