@@ -1,0 +1,29 @@
+{% extends "blogsite/index.html" %}
+{% load static %}
+
+{% block head_title %}Category &ndash; {{ category.title }}{% endblock  %}
+
+{% block content %}
+<div class="posts">
+    <h1 class="content-subhead">{% block content_subhead %}<a href="{% url 'index' %}">Back to Home</a>{% endblock %}</h1>
+    <h2>Posts under {{ category.title }}</h2>
+    {% if category_posts %}
+        {% for post in category_posts %}
+            <section class="post">
+                <header class="post-header">
+                    <img width="48" height="48" alt="Eugene Essun Oliveros" class="post-avatar" src="{{ post.author.image.url }}">
+                    <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+                    <p class="post-meta">
+                        By <a class="post-author" href="#">{{ post.author }}</a> under <a class="post-category post-category-js" href="{% url 'blog:category' post.category.slug %}">{{ post.category }}</a>
+                    </p>
+                </header>
+
+                <div class="post-description">
+                  {{ post.body|truncatewords:90|safe }}
+                </div>
+                <a href="{{ post.url }}">Read more &#10148;</a>
+            </section>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
