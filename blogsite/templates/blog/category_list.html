@@ -8,7 +8,7 @@
     <h1 class="content-subhead">{% block content_subhead %}<a href="{% url 'index' %}">Back to Home</a>{% endblock %}</h1>
     <h2>Posts under {{ category.title }}</h2>
     {% if category_posts %}
-        {% for post in category_posts %}
+        {% for post in category.post_set.all %}
             <section class="post">
                 <header class="post-header">
                     <img width="48" height="48" alt="Eugene Essun Oliveros" class="post-avatar" src="{{ post.author.image.url }}">
