@@ -8,7 +8,10 @@ admin.site.unregister(User)
 
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
-
+    list_display = ('author', 'title', 'slug', 'status', 'created_at')
+    list_filter = ('created_at', 'status',)
+    list_select_related = True
+    search_fields = ['title', 'slug', 'status', 'created_at']
 
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
