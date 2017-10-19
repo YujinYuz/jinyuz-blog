@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.test import TestCase, RequestFactory
 from django.core.urlresolvers import reverse
-from django.contrib.staticfiles.testing import LiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
 
 
 class TestHomePage(TestCase):
