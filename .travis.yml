@@ -19,6 +19,7 @@ before_install:
 
 # command to install dependencies
 install:
+  - pip install pyvirtualdisplay
   - pip install -r requirements.txt
   - pip install -U codecov
 
