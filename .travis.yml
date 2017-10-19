@@ -16,6 +16,7 @@ before_install:
   - cp geckodriver gecko/
   - export PATH=$PATH:$PWD/gecko
   - sudo apt-get install xvfb
+  - export DISPLAY=:0
 
 # command to install dependencies
 install:
