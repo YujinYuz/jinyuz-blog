@@ -1,7 +1,7 @@
+# jinyuz-blog
 [![Build Status](https://travis-ci.org/YujinYuz/jinyuz-blog.svg?branch=master)](https://travis-ci.org/YujinYuz/jinyuz-blog)
 [![codecov](https://codecov.io/gh/YujinYuz/jinyuz-blog/branch/master/graph/badge.svg)](https://codecov.io/gh/YujinYuz/jinyuz-blog)
 
-# jinyuz-blog
 A blog site for idiot geniuses.
 
 # Summary
