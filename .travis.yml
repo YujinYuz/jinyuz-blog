@@ -25,5 +25,9 @@ script:
   # Not sure if this is the right one. So, if someone sees this, can you please correct me? Thanks :)
   - coverage run manage.py test
 
+after_script:
+  cat geckodriver.log
+
 after_success:
   - codecov
+
