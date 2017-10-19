@@ -16,31 +16,12 @@ class TestHomePage(TestCase):
     def test_uses_base_template(self):
         self.assertTemplateUsed(self.response, "base.html")
 
-
-class TestNewVisitorHomePage(LiveServerTestCase):
-
-    @classmethod
-    def setUpClass(cls):
-        super(TestNewVisitorHomePage, cls).setUpClass()
-        cls.browser = WebDriver()
-        cls.browser.implicitly_wait(5)
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.browser.quit()
-        super(TestNewVisitorHomePage, cls).tearDownClass()
-
-    def get_full_url(self, namespace):
-        return self.live_server_url + reverse(namespace)
-
     def test_home_title(self):
-        self.browser.get(self.get_full_url('index'))
-        self.assertIn("idiot genius", self.browser.title)
+        self.assertIn("idiot genius", self.response.content.decode('utf-8'))
 
-    def test_brand_title(self):
-        self.browser.get(self.get_full_url('index'))
-        brand_title = self.browser.find_element_by_class_name('brand-title')
-        self.assertIn("yujinyuz", brand_title.text)
+    def test_home_status_code(self):
+        self.assertEqual(self.response.status_code, 200)
+
 
 class TestAboutPage(TestCase):
 
@@ -56,25 +37,8 @@ class TestAboutPage(TestCase):
     def test_about_contains_github_repositories(self):
         self.assertIn("GitHub Repositories", self.response.content.decode('utf-8'))
 
-class TestNewVisitorAboutPage(LiveServerTestCase):
-
-    @classmethod
-    def setUpClass(cls):
-        super(TestNewVisitorAboutPage, cls).setUpClass()
-        cls.browser = WebDriver()
-        cls.browser.implicitly_wait(5)
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.browser.quit()
-        super(TestNewVisitorAboutPage, cls).tearDownClass()
-
-    def get_full_url(self, namespace):
-        return self.live_server_url + reverse(namespace)
-
-    def test_about_title(self):
-        self.browser.get(self.get_full_url('about'))
-        self.assertIn("About", self.browser.title)
+    def test_about_status_code(self):
+        self.assertEqual(self.response.status_code, 200)
 
 class TestBlogPage(TestCase):
 
@@ -83,3 +47,6 @@ class TestBlogPage(TestCase):
 
     def test_uses_blog_template(self):
         self.assertTemplateUsed(self.response, "blog/blog_index.html")
+
+    def test_blog_status_code(self):
+        self.assertEqual(self.response.status_code, 200)
