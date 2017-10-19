@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 dist: trusty
 language: python
 python:
@@ -15,6 +15,8 @@ before_install:
   - mkdir gecko
   - cp geckodriver gecko/
   - export PATH=$PATH:$PWD/gecko
+  - sudo apt-get install xvfb
+
 # command to install dependencies
 install:
   - pip install -r requirements.txt
