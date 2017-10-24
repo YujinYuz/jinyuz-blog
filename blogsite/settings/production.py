@@ -30,6 +30,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'static'
+AWS_QUERYSTRING_AUTH = False
 STATIC_URL = 'https://{custom_domain}/{location}'.format(custom_domain=AWS_S3_CUSTOM_DOMAIN, location=AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'blogsite.settings.storage_backends.MediaStorage'
