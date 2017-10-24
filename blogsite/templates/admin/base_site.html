@@ -8,7 +8,8 @@
 
 {% block extrahead %}
 <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
-<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+<script>window.CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/";</script>
+{{ block.super }}
 {% endblock  %}
 
 {% block nav-global %}{% endblock %}
