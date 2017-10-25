@@ -33,8 +33,10 @@
     <div class="post-description">
       <dl>
         {% for repo in repos %}
-          <dt><a href="{{ repo.url }}">{{ repo.name }}</a>&nbsp;({{ repo.language }})</dt>
-          <dd>{{ repo.description }}</dd>
+          {% if repo.language %}
+            <dt><a href="{{ repo.url }}">{{ repo.name }}</a>&nbsp;({{ repo.language }})</dt>
+            <dd>{{ repo.description }}</dd>
+          {% endif %}
         {% endfor %}
       </dl>
     </div>

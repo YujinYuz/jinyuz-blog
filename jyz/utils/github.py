@@ -19,7 +19,7 @@ def fetch_user_repositories(username, forked=False):
             'full_name': repo['full_name'],
             'url': repo['html_url'],
             'description': repo['description'],
-            'language': repo['language'] if repo['language'] else "N/A",
+            'language': repo['language'] if repo['language'] else None,
         })
 
     return repositories
