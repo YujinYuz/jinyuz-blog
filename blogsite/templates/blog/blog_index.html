@@ -21,7 +21,7 @@
                 <div class="post-description">
                   {{ post.body|truncatewords:90|safe }}
                 </div>
-                <a href="{{ post.url }}">Read more &#10148;</a>
+                <a href="{{ post.url }}"><small>Read more &raquo;</small></a>
             </section>
         {% endfor %}
     {% endif %}
