@@ -7,76 +7,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="5eNfOO4FcLDyHLDFXC0y6vpGv17EkgnNMgnDuVJlVuk">
     {% block meta_tags %}
+    <meta name="keywords" content="Eugene Essun Oliveros, Python, Programming, Django, Web Development">
+    <meta name="author" content="Eugene Essun Oliveros">
     <meta name="description" content="A blog made by an idiot genius, for an idiot genius.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Your idiot genius">>
+    <meta property="article:publisher" content="https://github.com/YujinYuz">
     {% endblock %}
-    <title>{% block head_title %}Home &ndash; A blog made by an idiot genius, for an idiot genius.{% endblock %}</title>
+    <title>{% block head_title %}Home{% endblock %} &mdash; Your idiot genius.</title>
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
     <link rel="stylesheet" href="{% static 'css/pure-min.css' %}">
 
     <!--[if lte IE 8]>
-        <link rel="stylesheet" href="{% static 'css/grids-responsive-old-ie-min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/grids-responsive-old-ie-min.css' %}">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="{% static 'css/grids-responsive-min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/grids-responsive-min.css' %}">
     <!--<![endif]-->
 
 
-        <!--[if lte IE 8]>
-            <link rel="stylesheet" href="{% static 'css/blog-old-ie.css' %}">
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <!--<![endif]-->
-        <script src="//twemoji.maxcdn.com/twemoji.min.js"></script>
-        <script src="{% static 'js/emoji.js' %}"></script>
-        <link rel="stylesheet" href="{% static 'css/emoji.css' %}">
-        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-        {% block head_css %}{% endblock %}
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="{% static 'css/blog-old-ie.css' %}">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <!--<![endif]-->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    {% block head_css %}{% endblock %}
 </head>
 <body>
-<div id="layout" class="pure-g">
+  <div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-md-1-4">
-        <div class="header">
-            <h1 class="brand-title"><a href="{% url 'index' %}">yujinyuz</a></h1>
-            <h2 class="brand-tagline">&ndash; An idiot genius</h2>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a class="pure-button" href="{% url 'about' %}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="pure-button" href="#">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="pure-button" href="{% url 'blog:index' %}">Blog</a>
-                    </li>
-                </ul>
-            </nav>
-
-            {% include "blogsite/badges.html" %}
-        </div>
-    </div>
+      <div class="header">
+        <h1 class="brand-title"><a href="{% url 'index' %}">yujinyuz</a></h1>
+        <h2 class="brand-tagline">&ndash; An idiot genius</h2>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a class="pure-button" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="pure-button" href="{% url 'blog:index' %}">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="pure-button" href="{% url 'contact' %}">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        {% include "blogsite/badges.html" %}
+      </div>
+  </div>
 
     <div class="content pure-u-1 pure-u-md-3-4">
-        <div>
-            {% block content %}
-              {% block pinned_posts %} {% endblock %}
-              {% block recent_posts %} {% endblock recent_posts %}
-            {% endblock content %}
+      <div>
+        {% block content %}
+          {% block pinned_posts %}{% endblock %}
+          {% block recent_posts %}{% endblock recent_posts %}
+        {% endblock content %}
 
-            <div class="footer">
-                <div class="pure-menu pure-menu-horizontal">
-                    <ul>
-                        <li class="pure-menu-item"><a href="{% url 'about' %}" class="pure-menu-link">About</a></li>
-                        <li class="pure-menu-item"><a href="http://twitter.com/yujinyuz_/" target="_blank" class="pure-menu-link">Twitter</a></li>
-                        <li class="pure-menu-item"><a href="http://github.com/YujinYuz/" target="_blank" class="pure-menu-link">GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="footer">
+          <div class="pure-menu pure-menu-horizontal">
+            <ul>
+              <li class="pure-menu-item"><a href="{% url 'about' %}" class="pure-menu-link">About</a></li>
+              <li class="pure-menu-item"><a href="http://twitter.com/yujinyuz_/" target="_blank" class="pure-menu-link">Twitter</a></li>
+              <li class="pure-menu-item"><a href="http://github.com/YujinYuz/" target="_blank" class="pure-menu-link">GitHub</a></li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </body>
 </html>

@@ -26,3 +26,6 @@ class AboutView(generic.TemplateView):
         context['posts'] = Post.objects.get_pinned_posts()
 
         return context
+
+class ContactView(generic.TemplateView):
+    template_name = 'blogsite/contact.html'
