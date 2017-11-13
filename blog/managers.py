@@ -12,10 +12,8 @@ class PostManager(models.Manager):
 
         return queryset
 
-    def get_pinned_posts(self):
-        queryset = self.get_queryset().filter(kind='pinned_post'
-                                              ).filter(status='public')
-
+    def get_my_intro(self):
+        queryset = self.get_queryset().get(kind='pinned_post', status='public')
         return queryset
 
     def get_all_posts(self):

@@ -1,26 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
-{% block recent_posts %}
+{% block posts %}
 <div class="posts">
-    <h1 class="content-subhead">{% block content_subhead %}Recent Posts{% endblock %}</h1>
-    {% if latest_blog_posts %}
-        {% for post in latest_blog_posts %}
-            <section class="post">
-                <header class="post-header">
-                    <img width="48" height="48" alt="{{ post.author }}" class="post-avatar" src="{{ post.author.image.url }}">
-                    <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-
-                    <p class="post-meta">
-                        By <span class="post-author" href="#">{{ post.author }}</span> under <a class="post-category post-category-js" href="{% url 'blog:category' post.category.slug %}">{{ post.category }}</a>
-                    </p>
-                </header>
-
-                <div class="post-description">
-                  {{ post.body|truncatewords:100|safe }}
-                </div>
-                <a href="{{ post.url }}"><small>Read more &raquo;</small></a>
-            </section>
-        {% endfor %}
-    {% endif %}
+  <section class="post">
+    <header class="post-header">
+      <h2 class="post-title">{{ post.title }}</h2>
+    </header>
+    <div class="post-description">
+      {{ post.body|safe }}
+    </div>
+  </section>
 </div>
 {% endblock %}

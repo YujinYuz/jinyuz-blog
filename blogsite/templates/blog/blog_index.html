@@ -5,24 +5,17 @@
 
 {% block content %}
 <div class="posts">
-    <h1 class="content-subhead">{% block content_subhead %}<a href="{% url 'index' %}">Back to Home</a>{% endblock %}</h1>
-    {% if recent_posts %}
-        {% for post in recent_posts %}
-            <section class="post">
-                <header class="post-header">
-                    <img width="48" height="48" alt="{{ post.author }}" class="post-avatar" src="{{ post.author.image.url }}">
-                    <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-
-                    <p class="post-meta">
-                        By <a class="post-author" href="#">{{ post.author }}</a> under <a class="post-category post-category-js" href="{% url 'blog:category' post.category.slug %}">{{ post.category }}</a>
-                    </p>
-                </header>
-
-                <div class="post-description">
-                  {{ post.body|truncatewords:90|safe }}
-                </div>
-                <a href="{{ post.url }}"><small>Read more &raquo;</small></a>
-            </section>
-        {% endfor %}
-    {% endif %}
+  {% if recent_posts %}
+    {% for post in recent_posts %}
+      <section class="post">
+        <header class="post-header">
+          <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        </header>
+        <div class="post-description">
+          {{ post.body|truncatewords:90|safe }}
+        </div>
+        <a href="{{ post.url }}"><small>Read more &raquo;</small></a>
+    {% endfor %}
+  {% endif %}
+  </section>
 {% endblock %}

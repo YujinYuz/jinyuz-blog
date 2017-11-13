@@ -1,22 +1,64 @@
-.brand-title {
-    text-transform: lowercase;
+.brand-title,
+.brand-tagline {
+    text-align: center;
+    margin: 0px;
 }
 
-.brand-title a {
-    color: white;
+.brand-image {
+    display: block;
+    margin: 0px auto;
+    height: 100px;
+    width: 100px;
+}
+
+.sidebar,
+.content {
+    margin-top: 20px;
+}
+
+.identity {
+    margin-bottom: 10px;
+}
+
+.site-links {
+    margin: 0 25px;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-item {
+    display: list-item;
+    margin: 0px;
+}
+
+.nav-item a {
     text-decoration: none;
-}
-
-.post-title a {
-    color: #222;
+    margin: 0px;
 }
 
 .nav-badges {
-    margin: 5;
-    padding: 0;
+    text-align: center;
     list-style: none;
+    margin-bottom: 0px;
 }
 
 .nav-item-icon {
     display: inline-block;
+    margin: 0px;
+}
+
+.line {
+    margin: 10px auto;
+}
+
+/* Blog Post*/
+.post-title {
+    border-bottom: 1px solid #eee;
+}
+
+.post-title a {
+    color: #222;
+    text-decoration: none;
 }
