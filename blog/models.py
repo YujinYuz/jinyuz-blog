@@ -8,6 +8,7 @@ from .managers import PostManager
 class Post(models.Model):
     POST_KIND = (
         ('post', 'Post'),
+        ('intro', 'Introduction'),
         ('pinned_post', 'Pinned Post'),
         ('draft', 'Draft'),
     )
