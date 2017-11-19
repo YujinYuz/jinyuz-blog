@@ -7,7 +7,7 @@ class IndexView(generic.ListView):
     template_name = 'blog/blog_index.html'
     context_object_name = 'posts'
     paginate_by = 5
-    queryset = Post.objects.all()
+    queryset = Post.objects.get_all_blog_posts()
 
 @method_decorator(public_post_only, name='dispatch')
 class DetailView(generic.DetailView):
