@@ -31,6 +31,9 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = PostManager()
 
+    class Meta:
+        ordering = ['-created_at']
+
     def __str__(self):
         return "{title}".format(title=self.title)
 
