@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.test import TestCase, RequestFactory
+from django.test import TestCase
 from django.core.urlresolvers import reverse
 
 
@@ -37,6 +37,7 @@ class TestAboutPage(TestCase):
 
     def test_about_status_code(self):
         self.assertEqual(self.response.status_code, 200)
+
 
 class TestBlogPage(TestCase):
 

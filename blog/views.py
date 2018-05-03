@@ -3,6 +3,7 @@ from .decorators import public_post_only
 from django.views import generic
 from django.utils.decorators import method_decorator
 
+
 class IndexView(generic.ListView):
     template_name = 'blog/blog_index.html'
     context_object_name = 'posts'

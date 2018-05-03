@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from django.views import generic
-from django.shortcuts import get_object_or_404
 from blog.models import Post
 from jyz.utils import github
+
 
 class IndexView(generic.TemplateView):
     template_name = 'blogsite/index.html'

@@ -13,6 +13,7 @@ class PostAdmin(admin.ModelAdmin):
     list_select_related = True
     search_fields = ['title', 'slug', 'status', 'created_at']
 
+
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
