@@ -17,7 +17,6 @@ from django.conf.urls import url, include
 from django.conf import settings
 from django.contrib import admin
 from .views import IndexView, AboutView, ContactView
-from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -25,10 +24,11 @@ urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^about/$', AboutView.as_view(), name='about'),
     url(r'^blog/', include('blog.urls', namespace='blog'), name='blog'),
-    url(r'^contact/', ContactView.as_view(), name='contact'),
+    url(r'^contact/$', ContactView.as_view(), name='contact'),
 ]
 
-# NOT the best practice but since I am only using one image, the I think this should be fine.
+# NOT the best practice but since I am only using one image,
+# so I think this should be fine.
 # TODO(yujinyuz): Try to research more about S3 AWS
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # noqa

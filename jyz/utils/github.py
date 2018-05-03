@@ -4,11 +4,15 @@ import os
 from datetime import datetime
 from blogsite.settings.base import PROJECT_ROOT_DIR
 
+
 def fetch_user_repositories(username, forked=False):
     github_search_api = "https://api.github.com/search/repositories?q=user:{username}+fork:{forked}"
     forked = "true" if forked else "false"
 
-    request_repo = requests.get(github_search_api.format(username=username, forked=forked))
+    request_repo = requests.get(github_search_api.format(
+        username=username,
+        forked=forked,
+    ))
     repos = request_repo.json()
 
     repositories = []
